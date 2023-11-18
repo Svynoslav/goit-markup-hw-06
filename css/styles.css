@@ -49,19 +49,17 @@ img {
 }
 .header-container {
     display: flex;
+    padding: 16px;
 }
 .header-navigation {
     display: flex;
     align-items: center;
 }
-.logo-header {
-    margin-right: 76px;
-}
 .logo-span-header {
     color: #2E2F42;
 }
 .header-navigation-menu {
-    display: flex;
+    display: none;
     gap: 40px;
     position: relative;
 }
@@ -98,11 +96,7 @@ img {
 }
 .contacts {
     font-style: normal;
-    margin-left: auto;
-}
-.contacts-list {
-    display: flex;
-    gap: 40px;
+    display: none;
 }
 .contacts-link {
     font-size: 16px;
@@ -110,8 +104,13 @@ img {
     letter-spacing: 0.32px;
     color: #434455;
     display: block;
-    padding: 24px 0;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.menu-open-btn {
+    margin-left: auto;
+    display: block;
+    background: none;
+    border: none;
 }
 
 /* body */
@@ -673,6 +672,32 @@ img {
     .container {
         max-width: 768px;
         }
+    /* header */
+    .header-container {
+        max-width: 768px;
+        padding: 16px 16px 0 16px;
+        margin: 0 auto;
+        gap: 120px;
+        align-items: center;
+    }
+    .menu-open-btn {
+        display: none;
+    }
+    .header-navigation {
+        gap: 120px;
+    }
+    .header-navigation-menu {
+        display: flex;
+    }
+    .contacts {
+        display: block;
+    }
+    .contacts-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    /* hero */
     .hero-section {
         padding-top: 112px;
         padding-bottom: 112px;
@@ -717,7 +742,7 @@ img {
     /* footer */
     .footer-container {
         gap: 72px 24px;
-        justify-content: center;
+        width: 584px;
     }
         .logo-footer {
             display: inline-block;
@@ -728,6 +753,9 @@ img {
         }
         .footer-socials {
             text-align: left;
+        }
+        .footer-form {
+            gap: 24px;
         }
         .footer-form-text {
             text-align-last: left;
@@ -743,6 +771,23 @@ img {
     }
     .container {
         max-width: 1158px;
+    }
+    /* header */
+    .header-container {
+        max-width: 1158px;
+    }
+    .logo-header {
+        margin-right: 76px;
+    }
+    .contacts {
+        margin-left: auto;
+    }
+    .contacts-list {
+        gap: 40px;
+        flex-wrap: nowrap;
+    }
+    .contacts-link {
+        padding: 24px 0;
     }
     /* hero section */
     .hero-section {
@@ -797,6 +842,7 @@ img {
     .footer-container {
         flex-wrap: nowrap;
         gap: 0;
+        width: auto;
     }
     .footer-text-wrap {
         margin-right: 120px;
