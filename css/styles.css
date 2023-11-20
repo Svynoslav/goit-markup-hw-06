@@ -20,10 +20,15 @@ img {
     max-width: 100%;
     height: auto;
 }
+/* .button {
+    line-height 0;
+    для нормальної висоти
+} */
 .container {
     max-width: 320px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding-right: 16px;
+    padding-left: 16px;
 }
 .section {
     padding-top: 96px;
@@ -49,11 +54,15 @@ img {
 }
 .header-container {
     display: flex;
-    padding: 16px;
+    align-items: center;
 }
 .header-navigation {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+.logo-header {
+    padding: 17.5px 0;
 }
 .logo-span-header {
     color: #2E2F42;
@@ -99,18 +108,108 @@ img {
     display: none;
 }
 .contacts-link {
-    font-size: 16px;
-    line-height: 150%;
-    letter-spacing: 0.32px;
+    font-size: 12px;
+    line-height: 116.667%;
+    letter-spacing: 0.48px;
     color: #434455;
     display: block;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .menu-open-btn {
-    margin-left: auto;
     display: block;
+    margin-left: auto;
+    padding: 0;
+    line-height: 0;
     background: none;
     border: none;
+}
+/* mob menu */
+.mob-menu {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 72px 24px 40px 16px;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+}
+.menu-close-btn {
+    display: block;
+    padding: 0;
+    line-height: 0;
+    background: none;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border: solid 1px rgba(46, 47, 66, 0.10);
+    border-radius: 50%; 
+    width: 24px;
+    height: 24px;
+}
+.mob-close-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.mob-navigation-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 168px;
+}
+.mob-navigation-link {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 111.111%;
+    letter-spacing: 0.72px;
+    text-transform: capitalize;
+    color: #2E2F42;
+}
+.cur-page {
+    color: #404BBF;
+}
+
+.mob-contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+.mob-contacts-link {
+    color: #434455;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: 0.4px;
+}
+.curlink {
+    color: #4D5AE5;
+}
+
+.mob-socials-list {
+    display: flex;
+    gap: 40px;
+}
+.mob-socials-list-item {
+    width: 40px;
+    height: 40px;
+}
+.mob-icon-link {
+    width: 100%;
+    height: 100%;
+    background-color: #4D5AE5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mob-icon {
+    fill: #f4f4fd;
 }
 
 /* body */
@@ -480,11 +579,11 @@ img {
     pointer-events: auto;
 }
 .modal {
-    width: 408px;
-    min-height: 584px;
+    width: 288px;
+    min-height: 623px;
     border-radius: 4px;
     background-color: #FCFCFC;
-    padding: 72px 24px 24px 24px;
+    padding: 72px 16px 24px 16px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -671,30 +770,28 @@ img {
 @media screen and (min-width: 768px) {
     .container {
         max-width: 768px;
+        padding-left: 16px;
+        padding-right: 16px;
         }
     /* header */
     .header-container {
-        max-width: 768px;
-        padding: 16px 16px 0 16px;
-        margin: 0 auto;
-        gap: 120px;
-        align-items: center;
+        justify-content: space-between;
     }
     .menu-open-btn {
         display: none;
     }
-    .header-navigation {
-        gap: 120px;
-    }
     .header-navigation-menu {
         display: flex;
+    }
+    .logo-header {
+        margin-right: 120px;
     }
     .contacts {
         display: block;
     }
     .contacts-list {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 12px;
     }
     /* hero */
@@ -722,7 +819,7 @@ img {
         gap: 72px 24px;
     }
     .advantages-list-item {
-        width: calc((100% - 48px) / 2);
+        width: calc((100% - 24px) / 2);
     }
     .advantages-title {
         text-align: left;
@@ -760,6 +857,10 @@ img {
         .footer-form-text {
             text-align-last: left;
         }
+    .modal {
+        min-height: 584px;
+        width: 408px;
+    }
 }
 
 /** desktop */
@@ -771,11 +872,10 @@ img {
     }
     .container {
         max-width: 1158px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     /* header */
-    .header-container {
-        max-width: 1158px;
-    }
     .logo-header {
         margin-right: 76px;
     }
@@ -785,9 +885,13 @@ img {
     .contacts-list {
         gap: 40px;
         flex-wrap: nowrap;
+        flex-direction: row;
     }
     .contacts-link {
         padding: 24px 0;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0.32px;
     }
     /* hero section */
     .hero-section {
@@ -864,4 +968,5 @@ img {
         .footer-input::placeholder {
             opacity: 1;
         }
+    /* modal */
 }
